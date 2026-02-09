@@ -7,13 +7,14 @@ test.describe('Verify functionalities of Checkbox Page', () => {
 
     let elementPage;
     let checkBoxPage;
+    let homepage;
 
     test.beforeEach('Visit Homepage and navigate to Elements > TextBox page', async ({ browser }) => {
         const context = await browser.newContext();
         const page = await context.newPage();
-        const homePage = new HomePage(page);
-        await homePage.visitHomePage();
-        await homePage.navigateToElementsPage(page);
+        homepage = new HomePage(page);
+        await homepage.visitHomePage();
+        await homepage.navigateToElementsPage(page);
         elementPage = new ElementsPage(page);
         await elementPage.navigateToCheckBoxMenu();
         checkBoxPage = new CheckboxPage(page);

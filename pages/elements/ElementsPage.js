@@ -7,7 +7,7 @@ export class ElementsPage {
         this.radioButtonMenuLocator = page.locator(`${menuLocator}:has-text("Radio Button")`);
         this.webTablesMenuLocator = page.locator(`${menuLocator}:has-text("Web Tables")`);
         this.buttonsMenuLocator = page.locator(`${menuLocator}:has-text("Buttons")`);
-        this.linksMenuLocator = page.locator(`${menuLocator}:has-text("Links")`);
+        this.linksMenuLocator = page.getByText('Links', { exact: true });
         this.UploadDownloadMenuLocator = page.locator(`${menuLocator}:has-text("Upload and Download")`);
     }
 

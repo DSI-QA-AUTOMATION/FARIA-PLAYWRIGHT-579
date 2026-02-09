@@ -6,6 +6,7 @@ export class HomePage {
     constructor(page) {
 
         this.page = page;
+        this.homePageUrl = 'https://demoqa.com/';
         this.elementsCardLocator = page.locator(`${cardLocator}:has-text("Elements")`);
         this.formsCardLocator = page.locator(`${cardLocator}:has-text("Forms")`);
         this.AlertsCardLocator = page.locator(`${cardLocator}:has-text("Alerts, Frame & Windows")`);
@@ -14,12 +15,12 @@ export class HomePage {
         this.BooksCardLocator = page.locator(`${cardLocator}:has-text("Book Store Application")`);
     }
     async visitHomePage() {
-        await this.page.goto('https://demoqa.com/', {
+        await this.page.goto(this.homePageUrl, {
             waitUntil: 'domcontentloaded',
             timeout: 60000,
         });
-
     }
+
     async assertElemetsCardIsVisible() {
         await expect(this.elementsCardLocator).toBeVisible();
     }
@@ -46,5 +47,10 @@ export class HomePage {
 
     async navigateToElementsPage() {
         await this.elementsCardLocator.click();
+    }
+
+    async returnNewHomePageUrl() {
+       await this.page.waitForLoadState('domcontentloaded');
+       return this.homePageUrl;
     }
 }
