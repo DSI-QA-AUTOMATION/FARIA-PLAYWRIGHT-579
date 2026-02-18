@@ -21,7 +21,23 @@ test.describe('Verify Links Functionalities', () => {
 
   test('Verify links opening a new tab', async ({ page }) => {
     await linksPage.clickHomeLink();
-    await linksPage.assertClickingHomeLinkOpensNewTabWithCorrectURL(homePage.returnNewHomePageUrl());
+    const expectedUrl = await homePage.returnNewHomePageUrl();
+    await linksPage.assertClickingHomeLinkOpensNewTabWithCorrectURL(expectedUrl);
+  });
+
+  test('Verify created link response', async () => {
+    await linksPage.clickCreatedLink();
+    await linksPage.assertCreatedLinkResponse();
+  });
+
+  test('Verify no content link response', async () => {
+    await linksPage.clickNoContentLink();
+    await linksPage.assertNoContentLinkResponse();
+  });
+
+  test('Verify moved link response', async () => {
+    await linksPage.clickMovedLink();
+    await linksPage.assertMovedLinkResponse();
   });
 
 

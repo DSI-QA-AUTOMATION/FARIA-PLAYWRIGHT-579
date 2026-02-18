@@ -34,4 +34,16 @@ export class LinksPage {
         const newPageURL = newPage.url();
         expect(newPageURL).toBe(newPageLink);
     }
+
+    async assertCreatedLinkResponse() {
+        await expect(this.linkResponse).toHaveText('Link has responded with staus 201 and status text Created');
+    }
+
+    async assertNoContentLinkResponse() {
+        await expect(this.linkResponse).toHaveText('Link has responded with staus 204 and status text No Content');
+    }
+
+    async assertMovedLinkResponse() {
+        await expect(this.linkResponse).toHaveText('Link has responded with staus 301 and status text Moved Permanently');
+    }
 }
