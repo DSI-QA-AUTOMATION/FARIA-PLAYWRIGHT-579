@@ -14,5 +14,8 @@ export class Utils {
         return values;
     }
 
+    async waitForTimeOut(milliseconds) {
+        return new Promise(resolve => setTimeout(resolve, milliseconds));
+    }
 
 }

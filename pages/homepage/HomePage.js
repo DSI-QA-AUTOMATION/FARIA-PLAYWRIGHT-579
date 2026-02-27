@@ -49,6 +49,14 @@ export class HomePage {
         await this.elementsCardLocator.click();
     }
 
+    async navigateToFormsPage() {
+        await this.formsCardLocator.click();
+    }
+
+    async navigateToAlertsFramesWidgetsPage() {
+        await this.AlertsCardLocator.click();
+    }   
+
     async returnNewHomePageUrl() {
        await this.page.waitForLoadState('domcontentloaded');
        return this.homePageUrl;
